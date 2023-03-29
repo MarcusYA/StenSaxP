@@ -2,9 +2,12 @@ const yourChoice = document.querySelector("#yourChoice");
 const oponentChoice = document.querySelector("#oponentChoice");
 const resultText = document.querySelector("#resultText");
 const yourOptBtn = document.querySelectorAll(".yourOptBtn");
+
 let player;
 let computer;
 let result;
+
+possibleChoices.forEach(possible)
 
 btns.forEach(button => button.addEventListener("click", () => {
 
@@ -30,6 +33,8 @@ function computerTurn(){
         computer = "SCISSORS";
         break;
     }
+
+    console.log(randNum);
 }
 function checkWinner(){
     if(player == computer){
