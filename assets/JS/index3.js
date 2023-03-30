@@ -13,8 +13,8 @@ const yourScore = document.getElementById("yourScore")
 const oponentScore = document.getElementById("oponentScore")
 
 
-buttonPushed.forEach(buttonPushed => buttonPushed.addEventListener('click', (e) => {
-    userChoice = e.target.id
+buttonPushed.forEach(button => button.addEventListener('click', () => {
+    userChoice = button.textContent;
     yourChoiceDisplay.innerHTML = userChoice
     randomNumber()
     resultShow()
@@ -26,13 +26,13 @@ function randomNumber() {
   const randomNumber = Math.floor(Math.random() * 3) + 1 
   
   if (randomNumber === 1) {
-    oponentChoice = 'rock'
+    oponentChoice = 'ROCK'
   }
   if (randomNumber === 2) {
-    oponentChoice = 'scissors'
+    oponentChoice = 'SCISSORS'
   }
   if (randomNumber === 3) {
-    oponentChoice = 'paper'
+    oponentChoice = 'PAPER'
   }
   oponentChoiceDisplay.innerHTML = oponentChoice
 }
@@ -43,22 +43,22 @@ function resultShow() {
   if (oponentChoice === userChoice) {
     result = 'Draw!'
   }
-  if (oponentChoice === 'rock' && userChoice === "paper") {
+  if (oponentChoice === 'ROCK' && userChoice === "PAPER") {
     result = "Gratulations - You won!"
   }
-  if (oponentChoice === 'rock' && userChoice === "scissors") {
+  if (oponentChoice === 'ROCK' && userChoice === "SCISSORS") {
     result = 'Sorry - You lost!'
   }
-  if (oponentChoice === 'paper' && userChoice === "scissors") {
+  if (oponentChoice === 'PAPER' && userChoice === "SCISSORS") {
     result = "Gratulations - You won!"
   }
-  if (oponentChoice === 'paper' && userChoice === "rock") {
+  if (oponentChoice === 'PAPER' && userChoice === "ROCK") {
     result = 'Sorry - You lost!'
   }
-  if (oponentChoice === 'scissors' && userChoice === "rock") {
+  if (oponentChoice === 'SCISSORS' && userChoice === "ROCK") {
     result = "Gratulations - You won!"
   }
-  if (oponentChoice === 'scissors' && userChoice === "paper") {
+  if (oponentChoice === 'SCISSORS' && userChoice === "PAPER") {
     result = 'Sorry - You lost!'
   }
   resultDisplay.innerHTML = result
