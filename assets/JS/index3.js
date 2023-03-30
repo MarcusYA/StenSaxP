@@ -9,8 +9,9 @@ const oponentChoiceDisplay = document.getElementById('oponentChoiceDisplay')
 const yourChoiceDisplay = document.getElementById('yourChoiceDisplay')
 const resultDisplay = document.getElementById('resultDisplay')
 const buttonPushed = document.querySelectorAll('.button')
-const yourScore = document.getElementById("yourScore")
-const oponentScore = document.getElementById("oponentScore")
+const yourScore = document.getElementById("yourScore").innerText;
+const oponentScore = document.getElementById("oponentScore").innerText;
+
 
 
 buttonPushed.forEach(button => button.addEventListener('click', () => {
@@ -45,29 +46,36 @@ function resultShow() {
   }
   if (oponentChoice === 'ROCK' && userChoice === "PAPER") {
     result = "Gratulations - You won!"
+    
   }
   if (oponentChoice === 'ROCK' && userChoice === "SCISSORS") {
     result = 'Sorry - You lost!'
+    
+    
   }
   if (oponentChoice === 'PAPER' && userChoice === "SCISSORS") {
     result = "Gratulations - You won!"
+    
   }
   if (oponentChoice === 'PAPER' && userChoice === "ROCK") {
     result = 'Sorry - You lost!'
+    
   }
   if (oponentChoice === 'SCISSORS' && userChoice === "ROCK") {
     result = "Gratulations - You won!"
+    
   }
   if (oponentChoice === 'SCISSORS' && userChoice === "PAPER") {
     result = 'Sorry - You lost!'
+    
   }
   resultDisplay.innerHTML = result
 }
 
 function scoreBoard() {
-  if (result = 'Sorry - You lost!' ) {
-    oponentScore++
-  } else {
-    yourScore++
-  }
-} 
+    if (result === "Gratulations - You won!") {
+        yourScore += 1;
+    } else {
+        oponentScore += 1;
+    }
+}
