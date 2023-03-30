@@ -1,56 +1,73 @@
-const computerChoiceDisplay = document.getElementById('computer-choice')
-const userChoiceDisplay = document.getElementById('user-choice')
-const resultDisplay = document.getElementById('result')
-const possibleChoices = document.querySelectorAll('button')
+//Task or functions
 let userChoice
-let computerChoice
-let result
+let oponentChoice
+//let resultShow
+let YourScore
+let OponentScore
 
-possibleChoices.forEach(possibleChoice => possibleChoice.addEventListener('click', (e) => {
+const oponentChoiceDisplay = document.getElementById('oponentChoiceDisplay')
+const yourChoiceDisplay = document.getElementById('yourChoiceDisplay')
+const resultDisplay = document.getElementById('resultDisplay')
+const buttonPushed = document.querySelectorAll('button')
+const yourScore = document.getElementById("yourScore")
+const oponentScore = document.getElementById("oponentScore")
+
+
+buttonPushed.forEach(buttonPushed => buttonPushed.addEventListener('click', (e) => {
     userChoice = e.target.id
-    userChoiceDisplay.innerHTML = userChoice
-    generateComputerChoice()
-    getResult()
+    yourChoiceDisplay.innerHTML = userChoice
+    randomNumber()
+    resultShow()
+    scoreBoard()
   }))
 
-function generateComputerChoice() {
-  const randomNumber = Math.floor(Math.random() * 3) + 1 // or you can use possibleChoices.length
+
+function randomNumber() {
+  const randomNumber = Math.floor(Math.random() * 3) + 1 
   
   if (randomNumber === 1) {
-    computerChoice = 'rock'
+    oponentChoice = 'rock'
   }
   if (randomNumber === 2) {
-    computerChoice = 'scissors'
+    oponentChoice = 'scissors'
   }
   if (randomNumber === 3) {
-    computerChoice = 'paper'
+    oponentChoice = 'paper'
   }
-  computerChoiceDisplay.innerHTML = computerChoice
+  oponentChoiceDisplay.innerHTML = oponentChoice
 }
 
 
 
-function getResult() {
-  if (computerChoice === userChoice) {
-    result = 'its a draw!'
+function resultShow() {
+  if (oponentChoice === userChoice) {
+    result = 'Draw!'
   }
-  if (computerChoice === 'rock' && userChoice === "paper") {
-    result = 'you win!'
+  if (oponentChoice === 'rock' && userChoice === "paper") {
+    result = "Gratulations - You won!"
   }
-  if (computerChoice === 'rock' && userChoice === "scissors") {
-    result = 'you lost!'
+  if (oponentChoice === 'rock' && userChoice === "scissors") {
+    result = 'Sorry - You lost!'
   }
-  if (computerChoice === 'paper' && userChoice === "scissors") {
-    result = 'you win!'
+  if (oponentChoice === 'paper' && userChoice === "scissors") {
+    result = "Gratulations - You won!"
   }
-  if (computerChoice === 'paper' && userChoice === "rock") {
-    result = 'you lose!'
+  if (oponentChoice === 'paper' && userChoice === "rock") {
+    result = 'Sorry - You lost!'
   }
-  if (computerChoice === 'scissors' && userChoice === "rock") {
-    result = 'you win!'
+  if (oponentChoice === 'scissors' && userChoice === "rock") {
+    result = "Gratulations - You won!"
   }
-  if (computerChoice === 'scissors' && userChoice === "paper") {
-    result = 'you lose!'
+  if (oponentChoice === 'scissors' && userChoice === "paper") {
+    result = 'Sorry - You lost!'
   }
   resultDisplay.innerHTML = result
 }
+
+function scoreBoard() {
+  if (result = 'Sorry - You lost!' ) {
+    oponentScore++
+  } else {
+    yourScore++
+  }
+} 
